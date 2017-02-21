@@ -1,0 +1,31 @@
+PODS:
+  - AwesomeData (0.3.8):
+    - ReachabilitySwift (~> 3)
+  - Hero (0.3.2)
+  - lottie-ios (1.0.4)
+  - ReachabilitySwift (3)
+
+DEPENDENCIES:
+  - AwesomeData (from `https://github.com/iOSWizards/AwesomeData.git`, tag `0.3.8`)
+  - Hero
+  - lottie-ios
+
+EXTERNAL SOURCES:
+  AwesomeData:
+    :git: https://github.com/iOSWizards/AwesomeData.git
+    :tag: 0.3.8
+
+CHECKOUT OPTIONS:
+  AwesomeData:
+    :git: https://github.com/iOSWizards/AwesomeData.git
+    :tag: 0.3.8
+
+SPEC CHECKSUMS:
+  AwesomeData: e2ca1699302e7a8a936b6f9ed56c5b42480b384e
+  Hero: 48f8df6798d16d35935cfbb0726c5fbbd23cfe5a
+  lottie-ios: 8b2c5ba38105430a72f03ce54be90d8dac950161
+  ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
+
+PODFILE CHECKSUM: 412257d70250dc5e4fbc5a8975ac1640f744a9e6
+
+COCOAPODS: 1.2.0

@@ -1,0 +1,6 @@
+framework module Pods_Hannah {
+  umbrella header "Pods-Hannah-umbrella.h"
+
+  export *
+  module * { export * }
+}

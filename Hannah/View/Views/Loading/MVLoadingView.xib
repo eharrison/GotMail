@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MVLoadingView" customModule="Hannah" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="266" height="281"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TwF-XO-nHY">
+                    <rect key="frame" x="0.0" y="0.0" width="266" height="281"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.29999999999999999" colorSpace="calibratedWhite"/>
+                </view>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="LSS-kh-vWa">
+                    <rect key="frame" x="115" y="122" width="37" height="37"/>
+                </activityIndicatorView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="TwF-XO-nHY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="9DW-Bf-Wl3"/>
+                <constraint firstAttribute="bottom" secondItem="TwF-XO-nHY" secondAttribute="bottom" id="KvL-9X-sbt"/>
+                <constraint firstItem="TwF-XO-nHY" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="YGf-y2-gBH"/>
+                <constraint firstItem="LSS-kh-vWa" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="ZyW-nd-czb"/>
+                <constraint firstItem="LSS-kh-vWa" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="nKe-wD-GFb"/>
+                <constraint firstAttribute="trailing" secondItem="TwF-XO-nHY" secondAttribute="trailing" id="qbt-NN-Nu9"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="activityIndicatorView" destination="LSS-kh-vWa" id="4xX-o8-L9U"/>
+            </connections>
+            <point key="canvasLocation" x="-21" y="-139.5"/>
+        </view>
+    </objects>
+</document>
