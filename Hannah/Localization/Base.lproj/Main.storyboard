@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -35,7 +34,7 @@
                                 <state key="normal" image="history"/>
                                 <connections>
                                     <action selector="historyButtonPressed:" destination="z0W-u9-hdO" eventType="touchUpInside" id="a2p-ca-kr6"/>
-                                    <segue destination="uhQ-e0-nxh" kind="presentation" animates="NO" modalPresentationStyle="overCurrentContext" id="t5D-ue-Vo3"/>
+                                    <segue destination="uhQ-e0-nxh" kind="presentation" id="t5D-ue-Vo3"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a new message will be unlocked tomorrow" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y2d-es-rdL">
@@ -98,16 +97,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1db-YI-qz6" customClass="DesignableView" customModule="Hannah" customModuleProvider="target">
-                                <rect key="frame" x="20" y="101" width="335" height="465"/>
+                                <rect key="frame" x="20" y="93.5" width="335" height="400"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="“I really love working with you. Thanks for all the amazing stuff together”" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="JIo-C2-M3N">
-                                        <rect key="frame" x="39" y="142.5" width="256" height="180"/>
+                                        <rect key="frame" x="39" y="110" width="256" height="180"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="30"/>
                                         <color key="textColor" red="0.92549019607843142" green="0.19607843137254902" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Doe" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YlD-bV-7eH">
-                                        <rect key="frame" x="40" y="342.5" width="255" height="24"/>
+                                        <rect key="frame" x="40" y="310" width="255" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="24" id="tBI-9s-0ww"/>
                                         </constraints>
@@ -118,7 +117,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="465" id="27G-Ke-5C1"/>
+                                    <constraint firstAttribute="height" constant="400" id="27G-Ke-5C1"/>
                                     <constraint firstItem="YlD-bV-7eH" firstAttribute="leading" secondItem="1db-YI-qz6" secondAttribute="leading" constant="40" id="6Rk-cM-10R"/>
                                     <constraint firstAttribute="trailing" secondItem="JIo-C2-M3N" secondAttribute="trailing" constant="40" id="6bH-wR-Qbd"/>
                                     <constraint firstItem="YlD-bV-7eH" firstAttribute="top" secondItem="JIo-C2-M3N" secondAttribute="bottom" constant="20" id="9QA-G7-wK7"/>
@@ -151,7 +150,7 @@
                         <constraints>
                             <constraint firstItem="1db-YI-qz6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="bOf-ZZ-Rfb" secondAttribute="leading" constant="20" id="0aa-sf-SO5"/>
                             <constraint firstItem="1l8-vA-gZQ" firstAttribute="centerX" secondItem="bOf-ZZ-Rfb" secondAttribute="centerX" id="CKU-5s-A0P"/>
-                            <constraint firstItem="1db-YI-qz6" firstAttribute="centerY" secondItem="bOf-ZZ-Rfb" secondAttribute="centerY" id="Gr8-Oy-tjH"/>
+                            <constraint firstItem="1db-YI-qz6" firstAttribute="centerY" secondItem="bOf-ZZ-Rfb" secondAttribute="centerY" constant="-40" id="Gr8-Oy-tjH"/>
                             <constraint firstItem="ARB-9P-9hD" firstAttribute="top" secondItem="1l8-vA-gZQ" secondAttribute="bottom" id="K5m-tF-nn1"/>
                             <constraint firstItem="1db-YI-qz6" firstAttribute="centerX" secondItem="bOf-ZZ-Rfb" secondAttribute="centerX" id="YV1-QD-xTy"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1db-YI-qz6" secondAttribute="trailing" constant="20" id="lg3-JZ-WTB"/>

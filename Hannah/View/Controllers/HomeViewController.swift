@@ -64,18 +64,22 @@ class HomeViewController: UIViewController {
             
             messageLabel.isHidden = true
             letterImageView.isHidden = true
+            
+            historyButton.isHidden = true
         }else{
             messageLabel.isHidden = false
             letterImageView.isHidden = false
+            
+            historyButton.alpha = 1
+            historyButton.isHidden = Message.pastMessages().count == 0
         }
-        
-        historyButton.isHidden = Message.pastMessages().count == 0
     }
 
     // MARK: - Events
     
     @IBAction func letterButtonPressed(_ sender: Any) {
         if let message = Message.todaysMessage, message.read == 0 {
+            historyButton.animateFadeOut()
             animationView?.removeFromSuperview()
             
             animationView = LOTAnimationView.animationNamed("openEnv")

@@ -20,8 +20,8 @@ class MessageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        message?.read = 1
-//        Message.save()
+        message?.read = 1
+        Message.save()
         
         messageLabel.text = message?.message
         authorLabel.text = message?.author

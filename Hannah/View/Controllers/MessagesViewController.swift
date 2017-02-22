@@ -27,7 +27,7 @@ class MessagesViewController: UIViewController {
     
     @IBAction func closeButtonPressed(_ sender: Any) {
         closeButton.animateTouchDown(halfWay: {
-            self.dismiss(animated: false, completion: nil)
+            self.dismiss(animated: true, completion: nil)
         })
     }
 }

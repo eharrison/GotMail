@@ -42,7 +42,7 @@ extension Message {
         
         let messages = Message.messages()
         for message in messages {
-            if let date = message.notificationDate?.toDate(format: "yyyy-MM-dd"), date >= Date() {
+            if let todayMessage = todaysMessage, Int(todayMessage.id ?? "0")! >= Int(message.id ?? "0")! {
                 pastMessages.append(message)
             }
         }
