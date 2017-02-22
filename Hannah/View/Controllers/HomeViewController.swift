@@ -23,15 +23,35 @@ class HomeViewController: UIViewController {
         
         MessageHelper.fetchMessages(loadView: self.view) { (messages) in
             self.updateView()
+            MVLocalNotificationsHelper.setupNotifications()
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        updateView()
+    }
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let viewController = segue.destination as? MessageViewController {
+            viewController.message = Message.todaysMessage
+        }
+    }
+    
+    @IBAction func unwindToHome(_ segue: UIStoryboardSegue){
+        self.updateView()
     }
     
     // MARK: - Has Message
     
     func updateView(){
+        animationView?.alpha = 1
         animationView?.removeFromSuperview()
         
-        if Message.messages().count > 0 {
+        if let message = Message.todaysMessage, message.read == 0{
             animationView = LOTAnimationView.animationNamed("moveEnv")
             animationView?.loopAnimation = true
             animationView?.frame = UIScreen.main.bounds
@@ -40,7 +60,6 @@ class HomeViewController: UIViewController {
             self.view.sendSubview(toBack: animationView!)
             
             animationView?.play(completion: { (finished) in
-                print("did complete \(finished)")
             })
             
             messageLabel.isHidden = true
@@ -49,11 +68,26 @@ class HomeViewController: UIViewController {
             messageLabel.isHidden = false
             letterImageView.isHidden = false
         }
+        
+        historyButton.isHidden = Message.pastMessages().count == 0
     }
 
     // MARK: - Events
     
     @IBAction func letterButtonPressed(_ sender: Any) {
+        if let message = Message.todaysMessage, message.read == 0 {
+            animationView?.removeFromSuperview()
+            
+            animationView = LOTAnimationView.animationNamed("openEnv")
+            animationView?.frame = UIScreen.main.bounds
+            animationView?.center = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height/2)
+            self.view.addSubview(animationView!)
+            
+            animationView?.play(completion: { (finished) in
+                //self.animationView?.alpha = 0
+                self.performSegue(withIdentifier: "messageSegue", sender: self)
+            })
+        }
     }
     
     @IBAction func historyButtonPressed(_ sender: Any) {

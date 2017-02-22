@@ -32,16 +32,26 @@ struct MessageHelper {
 
 extension Message {
     
-    static func readMessages() -> [Message] {
-        return Message.list(sortDescriptor: NSSortDescriptor(key:"id", ascending:false), predicate: NSPredicate(format: "read == %d", NSNumber(value: true))) as! [Message]
+    static var todaysMessage: Message? {
+        let today = Date().toString(format: "yyyy-MM-dd")
+        return getObject(predicate: NSPredicate(format: "notificationDate CONTAINS[cd] %@", today)) as? Message
     }
     
-    static func unreadMessages() -> [Message] {
-        return Message.list(sortDescriptor: NSSortDescriptor(key:"id", ascending:false), predicate: NSPredicate(format: "read == %d", NSNumber(value: false))) as! [Message]
+    static func pastMessages() -> [Message] {
+        var pastMessages = [Message]()
+        
+        let messages = Message.messages()
+        for message in messages {
+            if let date = message.notificationDate?.toDate(format: "yyyy-MM-dd"), date >= Date() {
+                pastMessages.append(message)
+            }
+        }
+        
+        return pastMessages
     }
     
     static func messages() -> [Message] {
-        return Message.list(sortWith: "id", ascending: false) as! [Message]
+        return Message.list(sortWith: "id", ascending: true) as! [Message]
     }
     
     static func processObjects(_ jsonObjects: [[String: AnyObject]]) -> [Message] {
@@ -52,6 +62,8 @@ extension Message {
                 messages.append(message)
             }
         }
+        
+        Message.setNotfificationDates()
         
         return messages
     }
@@ -73,6 +85,18 @@ extension Message {
         }
         
         return nil
+    }
+    
+    static func setNotfificationDates() {
+        let messages = Message.messages()
+        
+        var day = 0
+        for message in messages {
+            let interval = Double(24*60*60*day)
+            message.notificationDate = startDate.addingTimeInterval(interval).toString(format: "yyyy-MM-dd HH:mm")
+            
+            day += 1
+        }
     }
     
 }

@@ -13,7 +13,14 @@ struct MVLocalNotificationsHelper {
     static let timeIntervalWindow = 24*6 //every 10 minutes
     
     static func setupNotifications(){
+        cancelAllNotifications()
         
+        let messages = Message.messages()
+        for message in messages {
+            if let text = message.message, let id = message.id, let notificationDate = message.notificationDate?.toDate(format: "yyyy-MM-dd HH:mm") {
+                scheduleNotification(NotificationItem(message: text, actionName: "Read it", date: notificationDate, objectType: "message", objectId: id, badgeNumber: 1, soundName: UILocalNotificationDefaultSoundName))
+            }
+        }
     }
     
     // MARK: - Configuration
@@ -89,7 +96,7 @@ struct NotificationItem {
     var actionName: String
     var date: Date
     var objectType: String
-    var objectId: NSNumber
+    var objectId: String
     var badgeNumber = 1
     var soundName = UILocalNotificationDefaultSoundName
 }

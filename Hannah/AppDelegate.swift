@@ -36,6 +36,8 @@ extension AppDelegate {
     func startLibraries(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
         // AwesomeData
         MVAwesomeDataHelper.start()
+        
+        MVLocalNotificationsHelper.enableLocalNotifications(withApplication: application)
     }
     
 }

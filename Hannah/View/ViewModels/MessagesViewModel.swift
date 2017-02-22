@@ -14,15 +14,9 @@ enum MessagesCellType: String {
 
 struct MessagesViewModel {
     
-    var cells: [MessagesCellType] = [.message, .message, .message, .message, .message]
-}
-
-// MARK: - API access
-
-extension MessagesViewModel {
-    
-    
-    
+    let messages: [Message] = {
+       return Message.pastMessages()
+    }()
 }
 
 // MARK: - Collection view data source and delegate
@@ -34,7 +28,7 @@ extension MessagesViewModel {
     }
     
     func itemsCount(_ section: Int) -> Int {
-        return cells.count
+        return messages.count
     }
     
     func sizeForItemAtIndexPath(_ collectionView:UICollectionView , indexPath: IndexPath) -> CGSize {
@@ -44,7 +38,8 @@ extension MessagesViewModel {
     func cell(_ collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MessagesCellType.message.rawValue, for: indexPath) as! MessageCollectionViewCell
         
-        
+        cell.messageLabel.text = messages[indexPath.row].message
+        cell.authorLabel.text = messages[indexPath.row].author
         
         return cell
     }
