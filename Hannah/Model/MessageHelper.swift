@@ -50,6 +50,19 @@ extension Message {
         return pastMessages
     }
     
+    static func futureMessages() -> [Message] {
+        var futureMessages = [Message]()
+        
+        let messages = Message.messages()
+        for message in messages {
+            if let todayMessage = todaysMessage, Int(todayMessage.id ?? "0")! < Int(message.id ?? "0")! {
+                futureMessages.append(message)
+            }
+        }
+        
+        return futureMessages
+    }
+    
     static func messages() -> [Message] {
         return Message.list(sortWith: "id", ascending: true) as! [Message]
     }

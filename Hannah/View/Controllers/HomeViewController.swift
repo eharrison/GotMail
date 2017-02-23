@@ -73,6 +73,8 @@ class HomeViewController: UIViewController {
             historyButton.alpha = 1
             historyButton.isHidden = Message.pastMessages().count == 0
         }
+        
+        messageLabel.text = Message.futureMessages().count == 0 ? "no more new messages to show :(" : "a new message will be unlocked tomorrow"
     }
 
     // MARK: - Events
